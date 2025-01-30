@@ -1,0 +1,39 @@
+{
+    "1": [
+        {
+            "chapter": 1,
+            "verse": 1,
+            "time": 0
+        },
+        {
+            "chapter": 1,
+            "verse": 2,
+            "time": 3
+        },
+        {
+            "chapter": 1,
+            "verse": 3,
+            "time": 9
+        },
+        {
+            "chapter": 1,
+            "verse": 4,
+            "time": 16
+        },
+        {
+            "chapter": 1,
+            "verse": 5,
+            "time": 22
+        },
+        {
+            "chapter": 1,
+            "verse": 6,
+            "time": 29
+        },
+        {
+            "chapter": 1,
+            "verse": 7,
+            "time": 31
+        }
+    ]
+}

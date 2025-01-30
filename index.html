@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran</title>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            height: 100vh;
+
+            padding: 10%;
+
+            display: flex;
+            flex-direction: column;
+
+
+            justify-content: center;
+
+            background-image: url(assets/bg1.jpg);
+            background-position: center;
+            background-size: cover;
+
+            backdrop-filter: brightness(0.5);
+        }
+
+        #aya {
+            width: 100%;
+            margin: auto;
+            font-size: 2rem;
+            color: white;
+
+            text-align: center;
+        }
+
+        #btns {
+            width: 100%;
+
+            display: flex;
+            flex-direction: row;
+
+            user-select: none;
+        }
+
+        #btns .btn {
+            color: white;
+            font-size: 3rem;
+
+
+
+
+            border-radius: 50%;
+
+
+
+            width: 20%;
+            max-width: 100px;
+            aspect-ratio: 1;
+
+            margin: auto;
+
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-image: url(assets/icons/play-button.png);
+            background-position: center;
+            background-size: cover;
+
+            filter: invert(1);
+        }
+    </style>
+
+</head>
+
+
+
+
+<body>
+
+    <div id="aya"></div>
+
+    <div id="btns">
+        <div class="btn" onclick="play()"></div>
+    </div>
+
+
+    <audio id="audio"></audio>
+
+
+    <script>
+        const AYA_WIDGET = document.getElementById("aya")
+        const AUDIO_WIDGET = document.getElementById("audio")
+
+        var SURAH = 1;
+        AUDIO_WIDGET.setAttribute("src", `data/mp3/${SURAH}.mp3`)
+
+        var AYAT;
+        var TIMES;
+
+
+        fetch('data/json/quran.json')
+            .then(response => response.json())
+            .then(function (data) {
+                AYAT =
+                    data[SURAH.toString()];
+            }).then(function () {
+                fetch('data/json/time.json')
+                    .then(response => response.json())
+                    .then(function (data) {
+                        TIMES =
+                            data[SURAH.toString()];
+                    })
+            })
+
+
+        function play() {
+            for (const _ in AYAT) {
+                setTimeout(function () {
+                    AYA_WIDGET.innerText = AYAT[_].text;
+                }, TIMES[_].time * 1000);
+            }
+            AUDIO_WIDGET.play()
+        }
+
+
+    </script>
+
+</body>
+
+</html>
