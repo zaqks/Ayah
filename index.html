@@ -41,7 +41,28 @@
             color: white;
 
             text-align: center;
+
+
         }
+
+
+        #aya.in {
+            animation: fadeIN 2s both;
+        }
+
+
+
+        @keyframes fadeIN {
+            0% {
+                filter: opacity(0);
+            }
+
+            100% {
+                filter: opacity(1);
+            }
+
+        }
+
 
         #btns {
             width: 100%;
@@ -89,7 +110,7 @@
 
 <body>
 
-    <div id="aya"></div>
+    <div class="in" id="aya"></div>
 
     <div id="btns">
         <div class="btn" onclick="play()"></div>
@@ -101,21 +122,34 @@
 
     <script>
         const AYA_WIDGET = document.getElementById("aya")
+
+
         const AUDIO_WIDGET = document.getElementById("audio")
 
         var SURAH = 1;
         AUDIO_WIDGET.setAttribute("src", `data/mp3/${SURAH}.mp3`)
 
-        var AYAT;
+        var AYAT_AR;
+        var AYAT_EN;
         var TIMES;
 
 
         fetch('data/json/quran.json')
             .then(response => response.json())
             .then(function (data) {
-                AYAT =
+                AYAT_AR =
                     data[SURAH.toString()];
-            }).then(function () {
+            })
+
+            .then(function () {
+                fetch('data/json/quran_en.json')
+                    .then(response => response.json())
+                    .then(function (data) {
+                        AYAT_EN =
+                            data[SURAH.toString()];
+                    })
+            })
+            .then(function () {
                 fetch('data/json/time.json')
                     .then(response => response.json())
                     .then(function (data) {
@@ -126,9 +160,14 @@
 
 
         function play() {
-            for (const _ in AYAT) {
+            for (const _ in AYAT_AR) {
                 setTimeout(function () {
-                    AYA_WIDGET.innerText = AYAT[_].text;
+                    //
+                    AYA_WIDGET.innerText = `${AYAT_AR[_].text}\n\n${AYAT_EN[_].text}`;
+                    //
+                    AYA_WIDGET.classList.remove('in');
+                    void AYA_WIDGET.offsetWidth;
+                    AYA_WIDGET.classList.add('in');
                 }, TIMES[_].time * 1000);
             }
             AUDIO_WIDGET.play()
