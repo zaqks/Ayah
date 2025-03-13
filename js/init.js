@@ -1,14 +1,16 @@
 // LOAD THE BOOKMARKS
-var surah = parseInt(getCookie("surah"));
-var aya = parseInt(getCookie("aya"));
+var surah = getCookie("surah");
+var aya = getCookie("aya");
 
-if (surah == null) surah = setCookie("surah", 1, 356);
+if (surah == null) surah = setCookie("surah", 1, 365);
+if (aya == null) aya = setCookie("aya", 1, 365);
 
-if (aya == null) aya = setCookie("aya", 1, 356);
+surah = parseInt(surah);
+aya = parseInt(aya);
 
 // SET THE AYA
-change_chapter(surah)
-change_aya(aya)
+change_chapter(surah);
+change_aya(aya);
 
 //  LOAD CHAPS
 load_chapters();
