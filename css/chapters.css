@@ -38,7 +38,7 @@
 .section#chapters .section_content table * {
     color: var(--txt0);
     text-align: center;
-    /* background-color: transparent; */
+    background-color: transparent;
 
 }
 
