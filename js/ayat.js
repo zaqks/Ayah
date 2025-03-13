@@ -41,7 +41,7 @@ async function setAya(surah, aya) {
 }
 
 function setIds(surah, aya) {
-  IDS.innerText = `${surah} - ${aya}`;
+  IDS.innerText = `${surah} : ${aya}`;
 }
 
 function change_aya(nw) {
