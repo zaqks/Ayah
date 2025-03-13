@@ -14,7 +14,11 @@ async function fetchJson(url) {
 }
 
 function extract_text(src, surah, aya) {
-  return Array.from(new Map(Object.entries(src)))[surah][1][aya]["text"];
+  try {
+    return Array.from(new Map(Object.entries(src)))[surah][1][aya]["text"];
+  } catch (error) {
+    return null;
+  }
 }
 
 // AYAT
@@ -24,20 +28,18 @@ function setSurahName(id) {
   });
 }
 
-function setAya(surah, aya) {
-  fetchJson("data/json/quran.json").then(function (_) {
-    aya_ar.innerText = extract_text(_, surah, aya);
-  });
+async function setAya(surah, aya) {
+  var _ = await fetchJson("data/json/quran.json");
+  var nw = extract_text(_, surah, aya);
+  if (nw != null) aya_ar.innerText = nw;
 
-  fetchJson("data/json/quran_en.json").then(function (_) {
-    aya_en.innerText = extract_text(_, surah, aya);
-  });
+  _ = await fetchJson("data/json/quran_en.json");
+  nw = extract_text(_, surah, aya);
+  if (nw != null) aya_en.innerText = nw;
+
+  return nw != null;
 }
 
 function setIds(surah, aya) {
   IDS.innerText = `${surah} - ${aya}`;
-}
-
-function aya_step(aya, indx) {  
-    
 }
