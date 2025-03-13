@@ -1,0 +1,22 @@
+button {
+  font-size: var(--sz4);
+  font-weight: 600;
+
+  padding: var(--sz3) var(--sz4);
+  border-radius: var(--sz3);
+
+  background-image: linear-gradient(
+    to bottom right,
+    var(--txt0),
+    /* var(--txt1) */
+  );
+
+  cursor: pointer;
+
+  color: var(--bg1);
+}
+
+
+button.square{
+  aspect-ratio: 1;
+}

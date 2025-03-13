@@ -1,0 +1,25 @@
+body .section#content .section_content #ayat {
+    margin: auto 0;
+
+    text-align: center;
+    font-size: var(--sz6);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--sz5);
+}
+
+body .section#content .section_content #ayat #aya_ar{
+    font-weight: 800;
+    font-size: var(--sz8);
+}
+
+body .section#content .section_content #buttons {    
+    display: flex;
+    justify-content: space-between;
+    gap: var(--sz2);
+}
+
+body .section#content .section_content #buttons *{
+    font-size: var(--sz5);
+}
