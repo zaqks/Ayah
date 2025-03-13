@@ -9,22 +9,46 @@
     <link rel="stylesheet" href="css/theme_dark.css">
     <link rel="stylesheet" href="css/widgets/section/section.css">
     <link rel="stylesheet" href="css/widgets/button.css">
+    <link rel="stylesheet" href="css/widgets/table.css">
+
+
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/chapters.css">
 
 </head>
 
 <body>
+    <!-- CHAPTERS -->
+    <div class="section hide overflow" id="chapters">
+        <div class="section_title" id="chaps_ttl">
+            <h1>Chapters</h1>
+        </div>
 
+        <div class="section_content">
+            <table>
+                <thead>
+                    <th>Index</th>
+                    <th>Translation</th>
+                    <th>Name</th>
+                </thead>
+                <tbody id="lst">
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- CONTENT -->
     <div class="section" id="content">
         <div class="section_title">
             <h1 id="surah">Loading...</h1>
-            <h2 id="IDS" >Loading...</h2>
+            <h2 id="IDS">Loading...</h2>
         </div>
         <div class="section_content">
             <div id="ayat">
-                <p id="aya_ar" >Loading...</p>
-                <p id="aya_en" >Loading...</p>
+                <p id="aya_ar">Loading...</p>
+                <p id="aya_en">Loading...</p>
             </div>
 
             <div id="buttons">
@@ -34,10 +58,15 @@
 
         </div>
     </div>
+
+    <!-- SCRIPTS -->
     <script src="js/cookies.js"></script>
-    <script src="js/ayat.js"></script>    
-    <script src="js/init.js"></script>
+
     <script src="js/bookmarks.js"></script>
+    <script src="js/ayat.js"></script>
+    <script src="js/chapters.js"></script>
+
+    <script src="js/init.js"></script>
     <script src="js/events.js"></script>
 
 </body>

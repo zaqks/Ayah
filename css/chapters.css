@@ -1,0 +1,47 @@
+.section#chapters {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 1;
+
+    backdrop-filter: blur(10px) brightness(0.5);
+    gap: var(--sz10);
+
+    padding-bottom: 0;
+}
+
+
+.section#chapters.hide {
+    display: none;
+}
+
+
+.section#chapters .section_title {
+    justify-content: center;
+}
+
+.section#chapters .section_content {
+    font-size: var(--sz3);
+    text-align: center;
+    gap: var(--sz3);
+}
+
+
+.section#chapters .section_content table {
+    padding-bottom: var(--sz5);
+}
+
+.section#chapters .section_content table * {
+    color: var(--txt0);
+    text-align: center;
+    /* background-color: transparent; */
+
+}
+
+.section#chapters .section_content table th {
+    font-weight: 600;
+}

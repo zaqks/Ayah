@@ -8,16 +8,16 @@ body {
 
     background-color: var(--bg0);
 
-    padding: var(--sz5);
+    backdrop-filter: blur(5px) brightness(0.7);
 }
 
 
-body .section#content {    
+body .section {
+    padding: var(--sz5);
     height: 100%;
 }
 
 
-body .section#content .section_content {    
-    height: 100%;    
+body .section#content .section_content {
+    height: 100%;
 }
-
