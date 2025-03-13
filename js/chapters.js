@@ -10,7 +10,7 @@ function load_chapters() {
       trns = _[indx]["translation"];
       name = _[indx]["name"];
 
-      chaps_lst.innerHTML += `<tr onclick="change_chapter(${indx+1}); chaps.classList.toggle('hide');"><td>${indx}</td><td>${trns}</td><td>${name}</td></tr>`;
+      chaps_lst.innerHTML += `<tr onclick="change_chapter(${indx+1}); chaps.classList.toggle('hide');"><td>${indx+1}</td><td>${trns}</td><td>${name}</td></tr>`;
     });
   });
 }
