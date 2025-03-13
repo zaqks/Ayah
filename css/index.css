@@ -6,7 +6,9 @@ body .section#content .section_content #ayat {
 
     display: flex;
     flex-direction: column;
+
     gap: var(--sz5);
+    padding: var(--sz10) 0;
 }
 
 body .section#content .section_content #ayat #aya_ar {
